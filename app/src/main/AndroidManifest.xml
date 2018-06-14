@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xman">
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!--重力加速度传感器权限 -->
+    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
+    <application
+        android:name=".XmanApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/appname"
+        android:theme="@style/CustomActionBarTheme" >
+        <activity
+            android:name=".view.XmanActivity"
+            android:theme="@style/TransparentTheme"
+            android:label="@string/appname" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.book.BookViewActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/appname" >
+        </activity>
+        <activity
+            android:name=".view.book.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".view.book.AnnotationListActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/appname" >
+        </activity>
+        <activity
+            android:name=".view.book.SearchActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name=".view.book.AboutActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/aboutme"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".view.shake.ShakeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/aboutme"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>

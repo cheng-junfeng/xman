@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center" >
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+    <com.zxing.view.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/transparent" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/red"
+        android:text="@string/capture_tip"
+        android:textSize="16sp" />
+
+    <!--</RelativeLayout>-->
+    <!--<RelativeLayout-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="@color/white"-->
+    <!-->-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:text="广告位"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--</RelativeLayout>-->
+</RelativeLayout>

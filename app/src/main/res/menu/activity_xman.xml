@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/actionbar_aboutme"
+        android:orderInCategory="100"
+        android:icon="@drawable/more"
+        android:title="@string/aboutme"/>
+    <item
+        android:id="@+id/actionbar_score"
+        android:orderInCategory="100"
+        android:icon="@drawable/more"
+        android:title="@string/score"/>
+    <item
+        android:id="@+id/actionbar_shake"
+        android:orderInCategory="100"
+        android:icon="@drawable/more"
+        android:title="摇一摇"/>
+</menu>
