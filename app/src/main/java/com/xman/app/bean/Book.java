@@ -177,10 +177,10 @@ public class Book implements Parcelable {
             bookInfo.PublishDate = source.readString();
             bookInfo.ISBN = source.readString();
             bookInfo.Summary = source.readString();
-            bookInfo.id=source.readString();;
+            bookInfo.id=source.readString();
             bookInfo.AuthorInfo=source.readString();
             bookInfo.Page=source.readString();
-            bookInfo.Price=source.readString();;
+            bookInfo.Price=source.readString();
             bookInfo.Rate=source.readDouble();
             bookInfo.Tag=source.readString();
             bookInfo.Content=source.readString();

@@ -41,7 +41,7 @@ public class PromotedActionsLibrary {
 
     public void setup(Context activityContext, FrameLayout layout) {
         context = activityContext;
-        promotedActions = new ArrayList<ImageButton>();
+        promotedActions = new ArrayList<>();
         frameLayout = layout;
         px = (int) context.getResources().getDimension(R.dimen.dim56dp) + 10;
         openRotation();
@@ -115,7 +115,6 @@ public class PromotedActionsLibrary {
         promotedActions.add(button);
 
         frameLayout.addView(button);
-        return;
     }
 
     public void addItem(Drawable drawable, int backimage, View.OnClickListener onClickListener) {

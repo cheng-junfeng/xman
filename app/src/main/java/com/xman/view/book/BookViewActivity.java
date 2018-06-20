@@ -51,7 +51,7 @@ public class BookViewActivity extends Activity {
         initBtn();
         findViews();
         if (getIntent().hasExtra("book")) {
-            mBook = (Book) getIntent().getParcelableExtra("book");
+            mBook = getIntent().getParcelableExtra("book");
             updateToView();
         } else if (getIntent().hasExtra("isbn")) {
 
@@ -59,7 +59,7 @@ public class BookViewActivity extends Activity {
             getRequestData(isbn);
         }
 
-        mRlAnnotation = (RelativeLayout) findViewById(R.id.rl_review);
+        mRlAnnotation = findViewById(R.id.rl_review);
         mRlAnnotation.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,21 +77,21 @@ public class BookViewActivity extends Activity {
     }
 
     private void findViews() {
-        progressView = (CircularProgressView) findViewById(R.id.progress_view);
+        progressView = findViewById(R.id.progress_view);
 
-        mTvAuthor = (TextView) findViewById(R.id.tv_book_author);
-        mTvPublisher = (TextView) findViewById(R.id.tv_book_publicer);
-        mTvDate = (TextView) findViewById(R.id.tv_book_time);
-        mTvIsbn = (TextView) findViewById(R.id.tv_book_isbn);
-        mTvRate = (TextView) findViewById(R.id.tv_book_score);
-        mTvPrice = (TextView) findViewById(R.id.tv_book_price);
-        mTvPage = (TextView) findViewById(R.id.tv_book_page);
-        mTvtags = (TextView) findViewById(R.id.tv_book_tag);
-        mIvIcon = (ImageView) findViewById(R.id.iv_book_icon);
-        mTvSummary = (TextView) findViewById(R.id.tv_book_intro_content);
-        mTvContent = (TextView) findViewById(R.id.tv_book_mulu_content);
-        mLlIntro = (LinearLayout) findViewById(R.id.ll_book_intro);
-        mLlMulu = (LinearLayout) findViewById(R.id.ll_book_mulu);
+        mTvAuthor = findViewById(R.id.tv_book_author);
+        mTvPublisher = findViewById(R.id.tv_book_publicer);
+        mTvDate = findViewById(R.id.tv_book_time);
+        mTvIsbn = findViewById(R.id.tv_book_isbn);
+        mTvRate = findViewById(R.id.tv_book_score);
+        mTvPrice = findViewById(R.id.tv_book_price);
+        mTvPage = findViewById(R.id.tv_book_page);
+        mTvtags = findViewById(R.id.tv_book_tag);
+        mIvIcon = findViewById(R.id.iv_book_icon);
+        mTvSummary = findViewById(R.id.tv_book_intro_content);
+        mTvContent = findViewById(R.id.tv_book_mulu_content);
+        mLlIntro = findViewById(R.id.ll_book_intro);
+        mLlMulu = findViewById(R.id.ll_book_mulu);
     }
 
     public void getRequestData(String isbn) {
@@ -164,7 +164,7 @@ public class BookViewActivity extends Activity {
     }
 
     private void initBtn() {
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.container);
+        FrameLayout frameLayout = findViewById(R.id.container);
         PromotedActionsLibrary promotedActionsLibrary = new PromotedActionsLibrary();
         promotedActionsLibrary.setup(getApplicationContext(), frameLayout);
         OnClickListener onClickListener = new OnClickListener() {

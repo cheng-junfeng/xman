@@ -5,7 +5,6 @@
     android:layout_height="@dimen/dim56dp"
     android:layout_gravity="bottom|right"
     android:visibility="visible"
-    android:background="@drawable/onivas_fab_circle"
-    >
+    android:background="@drawable/onivas_fab_circle">
 
 </ImageButton>

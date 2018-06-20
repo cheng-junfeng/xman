@@ -36,7 +36,7 @@ public class SearchActivity extends Activity {
     private ListView mLvSearch;
     private SearchAdapter mAdapter;
 
-    private List<Book> mBooks = new ArrayList<Book>();
+    private List<Book> mBooks = new ArrayList<>();
     private EditText mEtContent;
     private CircularProgressView progressView;
     private Thread updateThread;
@@ -47,9 +47,9 @@ public class SearchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mEtContent = (EditText) findViewById(R.id.et_search_content);
-        mLvSearch = (ListView) findViewById(R.id.lv_search);
-        mRlBtn = (RelativeLayout) findViewById(R.id.rl_search_btn);
+        mEtContent = findViewById(R.id.et_search_content);
+        mLvSearch = findViewById(R.id.lv_search);
+        mRlBtn = findViewById(R.id.rl_search_btn);
 
         mRlBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,7 @@ public class SearchActivity extends Activity {
                 getRequestData(mEtContent.getText().toString());
             }
         });
-        progressView = (CircularProgressView) findViewById(R.id.progress_view);
+        progressView = findViewById(R.id.progress_view);
         mAdapter = new SearchAdapter(this, mBooks);
         mLvSearch.setAdapter(mAdapter);
 

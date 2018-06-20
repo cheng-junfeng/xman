@@ -4,6 +4,7 @@
     android:background="@color/search_item_bg"
     android:minHeight="100dp"
     android:layout_height="100dp">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:background="@drawable/corners"
@@ -13,16 +14,19 @@
         android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         android:layout_height="fill_parent">
+
         <ImageView
             android:id="@+id/iv_search_icon"
             android:layout_width="100dp"
             android:src="@drawable/defaultbook"
             android:scaleType="centerCrop"
             android:layout_height="fill_parent" />
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_marginLeft="15dp"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/tv_search_item_title"
                 android:layout_width="wrap_content"
@@ -33,6 +37,7 @@
                 android:textColor="@color/contents_text"
                 android:text="盗墓笔记"
                 android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/tv_search_item_author"
                 android:maxLines="2"
@@ -44,6 +49,7 @@
                 android:paddingTop="15dp"
                 android:text="南派三叔 / 中国友谊出版公司 / 2007-1 / 26.80元"
                 android:layout_height="wrap_content" />
+
             <TextView
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="3dp"
@@ -53,6 +59,7 @@
                 android:text="8.2分"
                 android:textColor="@color/viewfinder_laser"
                 android:layout_height="wrap_content" />
+
             <TextView
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="3dp"

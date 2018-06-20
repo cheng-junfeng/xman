@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.xman.R;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 

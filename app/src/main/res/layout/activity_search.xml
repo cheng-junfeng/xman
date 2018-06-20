@@ -5,11 +5,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/rl_search"
         android:layout_width="fill_parent"
         android:background="@color/actionbar"
         android:layout_height="50dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
@@ -19,6 +21,7 @@
             android:layout_toLeftOf="@+id/rl_search_btn"
             android:background="@drawable/corners"
             android:layout_height="fill_parent">
+
             <ImageView
                 android:id="@+id/iv_search_icon"
                 android:layout_width="wrap_content"
@@ -26,6 +29,7 @@
                 android:src="@drawable/search_black"
                 android:layout_marginLeft="15dp"
                 android:layout_height="wrap_content" />
+
             <EditText
                 android:id="@+id/et_search_content"
                 android:layout_width="match_parent"
@@ -36,6 +40,7 @@
                 android:layout_toRightOf="@+id/iv_search_icon"
                 android:layout_height="fill_parent" />
         </RelativeLayout>
+
         <com.xman.widget.RippleView
             android:id="@id/rl_search_btn"
             android:layout_width="wrap_content"
@@ -43,6 +48,7 @@
             android:layout_alignParentRight="true"
             android:visibility="gone"
             ripple:rv_centered="true">
+
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="fill_parent"
@@ -52,19 +58,20 @@
                 android:text="查询"
                 android:textSize="18sp"
                 android:background="@color/actionbar"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
         </com.xman.widget.RippleView>
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent">
+
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:id="@+id/lv_search"
-            android:divider="@null"
-            />
+            android:divider="@null" />
+
         <com.xman.widget.CircularProgressView
             android:id="@+id/progress_view"
             android:layout_centerHorizontal="true"
@@ -75,7 +82,7 @@
             android:padding="0dp"
             app:cpv_thickness="4dp"
             app:cpv_indeterminate="true"
-            app:cpv_animAutostart="false"/>
+            app:cpv_animAutostart="false" />
     </RelativeLayout>
 
 

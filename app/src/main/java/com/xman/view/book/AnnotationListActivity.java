@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class AnnotationListActivity extends Activity {
 
     private ListView mLvAnnotation;
-    private List<Annotation> mAnnotations = new ArrayList<Annotation>();
+    private List<Annotation> mAnnotations = new ArrayList<>();
     private AnnotationAdapter mAdapter;
     private String bookid, bookname;
     private SwipeRefreshLayout mSrLayout;
@@ -42,7 +42,7 @@ public class AnnotationListActivity extends Activity {
         bookname = getIntent().getStringExtra("name");
         this.getActionBar().setTitle("《" + bookname + "》的笔记");
 
-        mSrLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSrLayout = findViewById(R.id.swipe_container);
 
         mSrLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -56,7 +56,7 @@ public class AnnotationListActivity extends Activity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        mLvAnnotation = (ListView) findViewById(R.id.lv_annotation);
+        mLvAnnotation = findViewById(R.id.lv_annotation);
         mLvAnnotation.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {

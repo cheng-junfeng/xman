@@ -46,15 +46,15 @@ public class SearchAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_search, null);
             holder = new ViewHolder();
-            holder.name = (TextView) convertView.findViewById(R.id.tv_search_item_title);
-            holder.author = (TextView) convertView.findViewById(R.id.tv_search_item_author);
-            holder.score = (TextView) convertView.findViewById(R.id.tv_search_item_score);
-            holder.scorenumber = (TextView) convertView.findViewById(R.id.tv_search_item_score_number);
+            holder.name = convertView.findViewById(R.id.tv_search_item_title);
+            holder.author = convertView.findViewById(R.id.tv_search_item_author);
+            holder.score = convertView.findViewById(R.id.tv_search_item_score);
+            holder.scorenumber = convertView.findViewById(R.id.tv_search_item_score_number);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.icon = (ImageView) convertView.findViewById(R.id.iv_search_icon);
+        holder.icon = convertView.findViewById(R.id.iv_search_icon);
         holder.name.setText(mlist.get(position).getTitle());
         holder.author.setText("作者:" + mlist.get(position).getAuthor() + "/" + mlist.get(position).getPublisher() + "/" +
                 mlist.get(position).getPublishDate() + "/" + mlist.get(position).getPrice() + "元");

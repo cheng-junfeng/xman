@@ -24,11 +24,11 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        mRlAuthor=(RelativeLayout)findViewById(R.id.rl_about_author);
-        mRlBlog=(RelativeLayout)findViewById(R.id.rl_about_blog);
-        mRlPro=(RelativeLayout)findViewById(R.id.rl_about_pro);
-        mRlUpdate=(RelativeLayout)findViewById(R.id.rl_about_update);
-        mTvVersion=(TextView)findViewById(R.id.tv_about_version);
+        mRlAuthor= findViewById(R.id.rl_about_author);
+        mRlBlog= findViewById(R.id.rl_about_blog);
+        mRlPro= findViewById(R.id.rl_about_pro);
+        mRlUpdate= findViewById(R.id.rl_about_update);
+        mTvVersion= findViewById(R.id.tv_about_version);
         mRlAuthor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

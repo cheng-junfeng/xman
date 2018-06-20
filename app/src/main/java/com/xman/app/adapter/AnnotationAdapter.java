@@ -55,12 +55,12 @@ public class AnnotationAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_annotation, null);
             holder = new ViewHolder();
-            holder.cheapter = (TextView) convertView.findViewById(R.id.tv_annotation_cheapter);
-            holder.time = (TextView) convertView.findViewById(R.id.tv_annotation_time);
-            holder.page = (TextView) convertView.findViewById(R.id.tv_annotation_page);
-            holder.summary = (TextView) convertView.findViewById(R.id.tv_annotation_summary);
-            holder.username = (TextView) convertView.findViewById(R.id.tv_annotation_user);
-            holder.headicon = (ImageView) convertView.findViewById(R.id.iv_annotation_head_icon);
+            holder.cheapter = convertView.findViewById(R.id.tv_annotation_cheapter);
+            holder.time = convertView.findViewById(R.id.tv_annotation_time);
+            holder.page = convertView.findViewById(R.id.tv_annotation_page);
+            holder.summary = convertView.findViewById(R.id.tv_annotation_summary);
+            holder.username = convertView.findViewById(R.id.tv_annotation_user);
+            holder.headicon = convertView.findViewById(R.id.iv_annotation_head_icon);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
