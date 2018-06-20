@@ -1,7 +1,7 @@
 package com.xman.view.book;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -18,11 +18,12 @@ import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
 import com.xman.R;
+import com.xman.app.BaseActivity;
 import com.xman.app.adapter.SearchAdapter;
 import com.xman.app.bean.Book;
-import com.xman.utils.KeyboardUtils;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
+import com.xman.utils.KeyboardUtils;
 import com.xman.widget.CircularProgressView;
 
 import org.json.JSONArray;
@@ -31,25 +32,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends Activity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    private ListView mLvSearch;
+public class SearchActivity extends BaseActivity {
+
+    @BindView(R.id.et_search_content)
+    EditText mEtContent;
+    @BindView(R.id.rl_search)
+    RelativeLayout mRlBtn;
+    @BindView(R.id.lv_search)
+    ListView mLvSearch;
+    @BindView(R.id.progress_view)
+    CircularProgressView progressView;
+
     private SearchAdapter mAdapter;
-
     private List<Book> mBooks = new ArrayList<>();
-    private EditText mEtContent;
-    private CircularProgressView progressView;
     private Thread updateThread;
-    private RelativeLayout mRlBtn;
+
+    @Override
+    protected int setContentView() {
+        return R.layout.activity_search;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
-        mEtContent = findViewById(R.id.et_search_content);
-        mLvSearch = findViewById(R.id.lv_search);
-        mRlBtn = findViewById(R.id.rl_search_btn);
 
         mRlBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +68,6 @@ public class SearchActivity extends Activity {
                 getRequestData(mEtContent.getText().toString());
             }
         });
-        progressView = findViewById(R.id.progress_view);
         mAdapter = new SearchAdapter(this, mBooks);
         mLvSearch.setAdapter(mAdapter);
 
@@ -157,14 +165,14 @@ public class SearchActivity extends Activity {
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case R.id.home:
                 finish();
                 break;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     private void startAnimationThreadStuff(long delay) {

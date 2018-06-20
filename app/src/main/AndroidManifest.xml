@@ -19,30 +19,21 @@
         android:label="@string/appname"
         android:theme="@style/CustomActionBarTheme">
         <activity
-            android:name=".view.XmanActivity"
-            android:label="@string/appname"
-            android:theme="@style/TransparentTheme">
+            android:name=".view.XmanActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.book.BookViewActivity"
-            android:label="@string/appname"
-            android:theme="@style/CustomActionBarThemeBack"></activity>
+            android:name=".view.book.BookViewActivity" />
         <activity
-            android:name=".view.book.AnnotationListActivity"
-            android:label="@string/appname"
-            android:theme="@style/CustomActionBarThemeBack"></activity>
+            android:name=".view.book.AnnotationListActivity" />
         <activity
-            android:name=".view.book.SearchActivity"
-            android:theme="@style/CustomActionBarThemeBack"></activity>
+            android:name=".view.book.SearchActivity" />
         <activity
             android:name=".view.book.AboutActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarThemeBack"></activity>
+            android:screenOrientation="portrait" />
     </application>
-
 </manifest>

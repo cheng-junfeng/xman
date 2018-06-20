@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/hight/hight.iml" filepath="$PROJECT_DIR$/hight/hight.iml" />
       <module fileurl="file://$PROJECT_DIR$/shake/shake.iml" filepath="$PROJECT_DIR$/shake/shake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swipeback/swipeback.iml" filepath="$PROJECT_DIR$/swipeback/swipeback.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/xman.iml" filepath="$PROJECT_DIR$/.idea/xman.iml" />
     </modules>
   </component>

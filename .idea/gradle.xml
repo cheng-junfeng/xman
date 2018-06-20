@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/hight" />
             <option value="$PROJECT_DIR$/shake" />
+            <option value="$PROJECT_DIR$/swipeback" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

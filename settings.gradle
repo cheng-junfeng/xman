@@ -1,1 +1,1 @@
-include ':app', ':hight', ':shake'
+include ':app', ':hight', ':shake', ':swipeback'

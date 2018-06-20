@@ -2,7 +2,7 @@
 <resources>
 
     <!--最普通的style -->
-    <style name="CustomActionBarTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
     </style>

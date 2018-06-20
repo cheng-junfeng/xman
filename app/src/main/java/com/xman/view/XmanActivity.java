@@ -71,14 +71,11 @@ public class XmanActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        int id = item.getItemId();
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = null;
-        switch (id) {
+        switch (item.getItemId()) {
             case R.id.actionbar_aboutme:
                 readGo(AboutActivity.class);
-                intent = new Intent(XmanActivity.this, AboutActivity.class);
-                startActivity(intent);
                 break;
             case R.id.actionbar_score:
                 Uri uri = Uri.parse("market://details?id=" + "com.scanbook");
@@ -87,7 +84,8 @@ public class XmanActivity extends BaseActivity {
                 startActivity(intent);
                 break;
         }
-        return super.onMenuItemSelected(featureId, item);
+
+        return super.onOptionsItemSelected(item);
     }
 
     @OnClick({R.id.rl_more, R.id.rl_search, R.id.rl_shake, R.id.rl_hight})

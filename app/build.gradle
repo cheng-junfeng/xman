@@ -37,4 +37,6 @@ dependencies {
     implementation project(':hight')
     //shake
     implementation project(':shake')
+    //swipeback
+    implementation project(':swipeback')
 }
