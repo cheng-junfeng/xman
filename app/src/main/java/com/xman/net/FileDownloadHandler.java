@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.loopj.android.http.BinaryHttpResponseHandler;
-import com.xman.app.common.FileUtils;
+import com.xman.utils.FileUtils;
 
 import org.apache.http.Header;
 

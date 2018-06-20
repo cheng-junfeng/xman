@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/hight/hightlight.iml" filepath="$PROJECT_DIR$/hight/hightlight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shake/shake.iml" filepath="$PROJECT_DIR$/shake/shake.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/xman.iml" filepath="$PROJECT_DIR$/.idea/xman.iml" />
     </modules>
   </component>

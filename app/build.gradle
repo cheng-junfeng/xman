@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 26
@@ -26,10 +27,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation files('libs/core.jar')
     implementation files('libs/android-async-http-1.4.5.jar')
     implementation files('libs/universal-image-loader-1.9.3.jar')
+    //butterknife
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVer"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVer"
 
     //hightlight
     implementation project(':hight')
+    //shake
+    implementation project(':shake')
 }

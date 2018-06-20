@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shake" >
+    <!--重力加速度传感器权限 -->
+    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application>
+        <activity android:name="com.simple.ShakeSimpleActivity"/>
+    </application>
+</manifest>

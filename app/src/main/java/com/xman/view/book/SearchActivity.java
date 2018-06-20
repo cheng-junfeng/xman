@@ -20,7 +20,7 @@ import com.loopj.android.http.RequestParams;
 import com.xman.R;
 import com.xman.app.adapter.SearchAdapter;
 import com.xman.app.bean.Book;
-import com.xman.app.common.KeyboardUtils;
+import com.xman.utils.KeyboardUtils;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
 import com.xman.widget.CircularProgressView;

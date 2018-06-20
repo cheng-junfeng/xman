@@ -4,12 +4,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
@@ -19,8 +16,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <!--重力加速度传感器权限 -->
-    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
     <application
         android:name=".XmanApplication"
         android:allowBackup="true"
@@ -42,13 +37,6 @@
             android:label="@string/appname" >
         </activity>
         <activity
-            android:name=".view.book.CaptureActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarThemeBack"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
-        <activity
             android:name=".view.book.AnnotationListActivity"
             android:theme="@style/CustomActionBarThemeBack"
             android:label="@string/appname" >
@@ -66,7 +54,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".view.shake.ShakeActivity"
+            android:name="com.simple.ShakeSimpleActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/aboutme"
             android:theme="@style/CustomActionBarThemeBack"
