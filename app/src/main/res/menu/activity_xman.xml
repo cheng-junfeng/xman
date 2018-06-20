@@ -14,4 +14,9 @@
         android:orderInCategory="100"
         android:icon="@drawable/more"
         android:title="摇一摇"/>
+    <item
+        android:id="@+id/actionbar_hight"
+        android:orderInCategory="100"
+        android:icon="@drawable/more"
+        android:title="操作指导"/>
 </menu>

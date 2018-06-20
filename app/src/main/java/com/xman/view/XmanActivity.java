@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.simple.HightSimpleActivity;
 import com.xman.R;
 import com.xman.view.book.AboutActivity;
 import com.xman.view.book.BookViewActivity;
@@ -102,6 +103,10 @@ public class XmanActivity extends Activity {
                 Uri uri = Uri.parse("market://details?id=" + "com.scanbook");
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.actionbar_hight:
+                intent = new Intent(XmanActivity.this, HightSimpleActivity.class);
                 startActivity(intent);
                 break;
         }
