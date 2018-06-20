@@ -32,13 +32,13 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    protected void readGo(Class<?> cls){
+    protected void readGo(Class<?> cls) {
         readGo(cls, null);
     }
 
-    protected void readGo(Class<?> cls, Bundle bundle){
+    protected void readGo(Class<?> cls, Bundle bundle) {
         Intent inten = new Intent(getActivity(), cls);
-        if(bundle != null){
+        if (bundle != null) {
             inten.putExtras(bundle);
         }
         startActivity(inten);

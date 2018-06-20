@@ -16,19 +16,20 @@ import com.xman.widget.MaterialDialog;
 
 public class AboutActivity extends Activity {
 
-    private RelativeLayout mRlAuthor,mRlBlog,mRlPro,mRlUpdate;
+    private RelativeLayout mRlAuthor, mRlBlog, mRlPro, mRlUpdate;
     private MaterialDialog mMaterialDialog;
     private TextView mTvVersion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        mRlAuthor= findViewById(R.id.rl_about_author);
-        mRlBlog= findViewById(R.id.rl_about_blog);
-        mRlPro= findViewById(R.id.rl_about_pro);
-        mRlUpdate= findViewById(R.id.rl_about_update);
-        mTvVersion= findViewById(R.id.tv_about_version);
+        mRlAuthor = findViewById(R.id.rl_about_author);
+        mRlBlog = findViewById(R.id.rl_about_blog);
+        mRlPro = findViewById(R.id.rl_about_pro);
+        mRlUpdate = findViewById(R.id.rl_about_update);
+        mTvVersion = findViewById(R.id.tv_about_version);
         mRlAuthor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

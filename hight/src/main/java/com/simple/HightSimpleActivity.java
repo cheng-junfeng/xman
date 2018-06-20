@@ -111,7 +111,7 @@ public class HightSimpleActivity extends Activity {
                     @Override
                     public void getPos(float rightMargin, float bottomMargin, RectF rectF, HighLight.MarginInfo marginInfo) {
                         marginInfo.rightMargin = rightMargin;
-                        marginInfo.bottomMargin = bottomMargin + 2*(view.getHeight());
+                        marginInfo.bottomMargin = bottomMargin + 2 * (view.getHeight());
                     }
                 }, HighLight.HightLightShape.CIRCULAR);// 圆形高亮
         highLight.show();

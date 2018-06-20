@@ -17,26 +17,26 @@ public abstract class BaseActivity extends Activity {
         ButterKnife.bind(this);
     }
 
-    protected void readGo(Class<?> cls){
+    protected void readGo(Class<?> cls) {
         readGo(cls, null);
     }
 
-    protected void readGo(Class<?> cls, Bundle bundle){
+    protected void readGo(Class<?> cls, Bundle bundle) {
         Intent inten = new Intent(this, cls);
-        if(bundle != null){
+        if (bundle != null) {
             inten.putExtras(bundle);
         }
         startActivity(inten);
     }
 
-    protected void readGoForResult(Class<?> cls, int requestCode){
+    protected void readGoForResult(Class<?> cls, int requestCode) {
         Intent inten = new Intent(this, cls);
         startActivityForResult(inten, requestCode);
     }
 
-    protected void readGoForResult(Class<?> cls, Bundle bundle, int requestCode){
+    protected void readGoForResult(Class<?> cls, Bundle bundle, int requestCode) {
         Intent inten = new Intent(this, cls);
-        if(bundle != null){
+        if (bundle != null) {
             inten.putExtras(bundle);
         }
         startActivityForResult(inten, requestCode);

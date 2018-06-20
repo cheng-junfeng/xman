@@ -18,7 +18,7 @@ public class ShakeSimpleActivity extends BaseShakeActivity {
         textView = findViewById(R.id.textView);
     }
 
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -10,13 +9,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:src="@mipmap/tip_text"/>
+        android:src="@mipmap/tip_text" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/id_iv_tip"
         android:layout_below="@id/id_iv_tip"
-        android:src="@mipmap/tip_jt_down"/>
+        android:src="@mipmap/tip_jt_down" />
 
 </RelativeLayout>

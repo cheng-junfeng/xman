@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hight" >
+    package="com.hight">
+
     <application>
-        <activity android:name="com.simple.HightSimpleActivity"/>
+        <activity android:name="com.simple.HightSimpleActivity" />
     </application>
 </manifest>
