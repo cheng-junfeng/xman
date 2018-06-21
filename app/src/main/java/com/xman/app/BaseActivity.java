@@ -21,7 +21,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }

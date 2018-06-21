@@ -32,6 +32,9 @@ dependencies {
     //butterknife
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVer"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVer"
+    //rx
+    api 'io.reactivex.rxjava2:rxjava:2.0.1'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
     //hightlight
     implementation project(':hight')

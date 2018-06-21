@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name=".XmanApplication"
@@ -18,19 +19,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appname"
         android:theme="@style/CustomActionBarTheme">
-        <activity
-            android:name=".view.XmanActivity">
+        <activity android:name=".view.XmanActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.book.BookViewActivity" />
-        <activity
-            android:name=".view.book.AnnotationListActivity" />
-        <activity
-            android:name=".view.book.SearchActivity" />
+        <activity android:name=".view.book.BookViewActivity" />
+        <activity android:name=".view.book.AnnotationListActivity" />
+        <activity android:name=".view.book.SearchActivity" />
+        <activity android:name=".view.Log.LogActivity" />
         <activity
             android:name=".view.book.AboutActivity"
             android:configChanges="keyboardHidden|orientation"

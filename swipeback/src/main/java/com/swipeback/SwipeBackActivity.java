@@ -42,6 +42,7 @@ public abstract class SwipeBackActivity extends AppCompatActivity implements Swi
 
     /**
      * 设置滑动返回是否可用
+     *
      * @param enable
      */
     @Override

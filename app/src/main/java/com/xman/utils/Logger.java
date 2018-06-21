@@ -51,6 +51,12 @@ public class Logger {
         }
     }
 
+    public static void d(String tag, @NonNull String msg) {
+        if (BuildConfig.DEBUG) {
+            Log.d(tag, getLogTitle() + msg);
+        }
+    }
+
     public static void i(@NonNull String msg) {
         if (BuildConfig.DEBUG) {
             Log.i(TAG, getLogTitle() + msg);

@@ -14,6 +14,7 @@ import com.simple.HightSimpleActivity;
 import com.simple.ShakeSimpleActivity;
 import com.xman.R;
 import com.xman.app.BaseActivity;
+import com.xman.view.Log.LogActivity;
 import com.xman.view.book.AboutActivity;
 import com.xman.view.book.BookViewActivity;
 import com.xman.view.book.SearchActivity;
@@ -72,7 +73,7 @@ public class XmanActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = null;
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.actionbar_aboutme:
                 readGo(AboutActivity.class);
@@ -92,6 +93,7 @@ public class XmanActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_more:
+                readGo(LogActivity.class);
                 break;
             case R.id.rl_search:
                 readGoForResult(SearchActivity.class, REQUEST_CODE);

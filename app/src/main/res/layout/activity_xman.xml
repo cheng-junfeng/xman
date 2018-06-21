@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_centerInParent="true"
-                    android:text="更多"
+                    android:text="Log"
                     android:textSize="18sp"
                     android:textColor="@color/gray" />
             </RelativeLayout>
