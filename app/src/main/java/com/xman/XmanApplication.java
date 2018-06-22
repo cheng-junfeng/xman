@@ -9,7 +9,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.xman.utils.FileUtils;
+import com.xman.utils.FileUtil;
 
 import java.io.File;
 
@@ -22,7 +22,7 @@ public class XmanApplication extends Application {
     }
 
     public static void initImageLoad(Context context) {
-        File cacheDir = new File(FileUtils.getCachePath());
+        File cacheDir = new File(FileUtil.getCachePath());
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder((context))
                 .threadPriority(Thread.NORM_PRIORITY - 2)  //线程池内加载的数量
                 .denyCacheImageMultipleSizesInMemory()

@@ -16,7 +16,6 @@ import com.xman.R;
 import com.xman.app.BaseActivity;
 import com.xman.view.email.MailActivity;
 import com.xman.view.log.LogActivity;
-import com.xman.view.book.AboutActivity;
 import com.xman.view.book.BookViewActivity;
 import com.xman.view.book.SearchActivity;
 
@@ -66,9 +65,9 @@ public class XmanActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_xman, menu);
-        getActionBar().setDisplayShowHomeEnabled(false);
-        getActionBar().setHomeButtonEnabled(false);// 不可点击
-        getActionBar().setDisplayHomeAsUpEnabled(false);// 去掉默认的返回箭头
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);// 不可点击
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);// 去掉默认的返回箭头
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -76,9 +75,6 @@ public class XmanActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.actionbar_aboutme:
-                readGo(AboutActivity.class);
-                break;
             case R.id.actionbar_score:
                 Uri uri = Uri.parse("market://details?id=" + "com.scanbook");
                 intent = new Intent(Intent.ACTION_VIEW, uri);

@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_search"
         android:layout_width="fill_parent"
         android:background="@color/actionbar"
         android:layout_height="50dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="3"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
@@ -35,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
                 android:singleLine="true"
-                android:background="@null"
+                android:textColor="@color/material_blue_500"
                 android:hint="请输入书名"
                 android:layout_toRightOf="@+id/iv_search_icon"
                 android:layout_height="fill_parent" />
@@ -43,10 +44,10 @@
 
         <com.xman.widget.RippleView
             android:id="@id/rl_search_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="fill_parent"
             android:layout_alignParentRight="true"
-            android:visibility="gone"
             ripple:rv_centered="true">
 
             <TextView
@@ -60,7 +61,7 @@
                 android:background="@color/actionbar"
                 android:textColor="@color/white" />
         </com.xman.widget.RippleView>
-    </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"

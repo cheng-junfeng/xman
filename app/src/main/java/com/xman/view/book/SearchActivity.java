@@ -1,30 +1,27 @@
 package com.xman.view.book;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.app.adapter.SearchAdapter;
+import com.xman.view.book.adapter.SearchAdapter;
 import com.xman.app.bean.Book;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
 import com.xman.utils.KeyboardUtils;
 import com.xman.widget.CircularProgressView;
+import com.xman.widget.RippleView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,22 +30,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class SearchActivity extends BaseActivity {
 
-    @BindView(R.id.et_search_content)
-    EditText mEtContent;
-    @BindView(R.id.rl_search)
-    RelativeLayout mRlBtn;
+
     @BindView(R.id.lv_search)
     ListView mLvSearch;
     @BindView(R.id.progress_view)
     CircularProgressView progressView;
+    @BindView(R.id.et_search_content)
+    EditText etSearchContent;
+    @BindView(R.id.rl_search_btn)
+    RippleView rlSearchBtn;
 
     private SearchAdapter mAdapter;
     private List<Book> mBooks = new ArrayList<>();
-    private Thread updateThread;
 
     @Override
     protected int setContentView() {
@@ -58,13 +54,12 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mRlBtn.setOnClickListener(new View.OnClickListener() {
+        rlSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startAnimationThreadStuff(100);
                 KeyboardUtils.closeKeyBoard(SearchActivity.this);
-                getRequestData(mEtContent.getText().toString());
+                getRequestData(etSearchContent.getText().toString());
             }
         });
         mAdapter = new SearchAdapter(this, mBooks);
@@ -80,29 +75,7 @@ public class SearchActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-
-        mEtContent.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.toString().equals("")) {
-                    mRlBtn.setVisibility(View.GONE);
-                } else {
-                    mRlBtn.setVisibility(View.VISIBLE);
-                }
-            }
-        });
     }
-
 
     public void getRequestData(String str) {
         RequestParams params = new RequestParams();
@@ -159,13 +132,12 @@ public class SearchActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = null;
         switch (item.getItemId()) {
             case R.id.home:
                 finish();
@@ -174,10 +146,16 @@ public class SearchActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    Handler handler;
+    private Thread updateThread;
+
     private void startAnimationThreadStuff(long delay) {
-        if (updateThread != null && updateThread.isAlive())
+        if (updateThread != null && updateThread.isAlive()) {
             updateThread.interrupt();
-        final Handler handler = new Handler();
+        }
+        if (handler == null) {
+            handler = new Handler();
+        }
         handler.postDelayed(new Runnable() {
             public void run() {
                 progressView.setVisibility(View.VISIBLE);

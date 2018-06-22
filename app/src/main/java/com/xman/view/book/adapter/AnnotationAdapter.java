@@ -1,4 +1,4 @@
-package com.xman.app.adapter;
+package com.xman.view.book.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

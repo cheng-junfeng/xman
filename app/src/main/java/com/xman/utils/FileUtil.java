@@ -1,6 +1,7 @@
 package com.xman.utils;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -160,5 +161,26 @@ public class FileUtil {
             e.printStackTrace();
         }
         return copyIsFinish;
+    }
+
+    public static String getAppPath() {
+        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            return "";
+        }
+        File sdRoot = Environment.getExternalStorageDirectory();
+        File file = new File(sdRoot.getAbsolutePath() + "/ScanBook");
+        if (!file.exists())
+            file.mkdir();
+        return file.getAbsolutePath();
+    }
+
+    public static String getCachePath() {
+        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            return "";
+        }
+        File file = new File(getAppPath() + "/cache");
+        if (!file.exists())
+            file.mkdir();
+        return file.getAbsolutePath();
     }
 }

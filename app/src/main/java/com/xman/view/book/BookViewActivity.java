@@ -1,55 +1,84 @@
 package com.xman.view.book;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xman.R;
+import com.xman.app.BaseActivity;
 import com.xman.app.bean.Book;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.FileDownloadHandler;
 import com.xman.net.HttpResponseHandler;
 import com.xman.widget.CircularProgressView;
 import com.xman.widget.PromotedActionsLibrary;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.xman.widget.RippleView;
 
 import org.json.JSONObject;
 
+import butterknife.BindView;
 
-public class BookViewActivity extends Activity {
+
+public class BookViewActivity extends BaseActivity {
 
 
-    private TextView mTvRate, mTvPrice, mTvAuthor, mTvPublisher, mTvDate, mTvIsbn, mTvSummary, mTvPage, mTvtags, mTvContent;
-    private ImageView mIvIcon;
+    @BindView(R.id.iv_book_icon)
+    ImageView mIvIcon;
+    @BindView(R.id.tv_book_author)
+    TextView mTvAuthor;
+    @BindView(R.id.tv_book_time)
+    TextView mTvDate;
+    @BindView(R.id.tv_book_page)
+    TextView mTvPage;
+    @BindView(R.id.tv_book_publicer)
+    TextView mTvPublisher;
+    @BindView(R.id.tv_book_isbn)
+    TextView mTvIsbn;
+    @BindView(R.id.tv_book_price)
+    TextView mTvPrice;
+    @BindView(R.id.tv_book_score)
+    TextView mTvRate;
+    @BindView(R.id.tv_book_tag)
+    TextView mTvtags;
+    @BindView(R.id.rl_review)
+    RippleView mRlAnnotation;
+    @BindView(R.id.tv_book_intro_content)
+    TextView mTvSummary;
+    @BindView(R.id.ll_book_intro)
+    LinearLayout mLlIntro;
+    @BindView(R.id.tv_book_mulu_content)
+    TextView mTvContent;
+    @BindView(R.id.ll_book_mulu)
+    LinearLayout mLlMulu;
+    @BindView(R.id.progress_view)
+    CircularProgressView progressView;
+    @BindView(R.id.container)
+    FrameLayout frameLayout;
 
     private Book mBook;
-
-    private RelativeLayout mRlAnnotation;
-    private LinearLayout mLlIntro, mLlMulu;
     private String isbn;
 
-    private CircularProgressView progressView;
     private Thread updateThread;
+
+    @Override
+    protected int setContentView() {
+        return R.layout.activity_bookview;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_bookview);
         initBtn();
-        findViews();
         if (getIntent().hasExtra("book")) {
             mBook = getIntent().getParcelableExtra("book");
             updateToView();
@@ -59,7 +88,6 @@ public class BookViewActivity extends Activity {
             getRequestData(isbn);
         }
 
-        mRlAnnotation = findViewById(R.id.rl_review);
         mRlAnnotation.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,25 +101,6 @@ public class BookViewActivity extends Activity {
                 }, 800);
             }
         });
-
-    }
-
-    private void findViews() {
-        progressView = findViewById(R.id.progress_view);
-
-        mTvAuthor = findViewById(R.id.tv_book_author);
-        mTvPublisher = findViewById(R.id.tv_book_publicer);
-        mTvDate = findViewById(R.id.tv_book_time);
-        mTvIsbn = findViewById(R.id.tv_book_isbn);
-        mTvRate = findViewById(R.id.tv_book_score);
-        mTvPrice = findViewById(R.id.tv_book_price);
-        mTvPage = findViewById(R.id.tv_book_page);
-        mTvtags = findViewById(R.id.tv_book_tag);
-        mIvIcon = findViewById(R.id.iv_book_icon);
-        mTvSummary = findViewById(R.id.tv_book_intro_content);
-        mTvContent = findViewById(R.id.tv_book_mulu_content);
-        mLlIntro = findViewById(R.id.ll_book_intro);
-        mLlMulu = findViewById(R.id.ll_book_mulu);
     }
 
     public void getRequestData(String isbn) {
@@ -135,7 +144,6 @@ public class BookViewActivity extends Activity {
                 progressView.setVisibility(View.GONE);
                 if (resp == null || resp.optInt("code") == 6000) {
                     Toast.makeText(BookViewActivity.this, "没有找到该图书或者不是图书的二维码", Toast.LENGTH_LONG).show();
-//                    finish();
                 }
             }
         });
@@ -160,17 +168,15 @@ public class BookViewActivity extends Activity {
         mTvtags.setText(mBook.getTag().equals("") ? "无标签" : mBook.getTag());
         ImageLoader.getInstance().displayImage(mBook.getBitmap(), mIvIcon);
 
-        this.getActionBar().setTitle(mBook.getTitle());
+        getSupportActionBar().setTitle(mBook.getTitle());
     }
 
     private void initBtn() {
-        FrameLayout frameLayout = findViewById(R.id.container);
         PromotedActionsLibrary promotedActionsLibrary = new PromotedActionsLibrary();
         promotedActionsLibrary.setup(getApplicationContext(), frameLayout);
         OnClickListener onClickListener = new OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         };
         promotedActionsLibrary.addItem(getResources().getDrawable(R.drawable.weibo), R.drawable.weibo_back, new OnClickListener() {
@@ -190,59 +196,8 @@ public class BookViewActivity extends Activity {
                 });
             }
         });
-        promotedActionsLibrary.addItem(getResources().getDrawable(R.drawable.weixin), R.drawable.weixin_back, new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String[] allowedContentTypes = new String[]{"image/png", "image/jpeg"};
-                BaseAsyncHttp.downloadFile(mBook.getBitmap(), new FileDownloadHandler(allowedContentTypes) {
-                    @Override
-                    public void DownSuccess() {
-                        DownFail();
-                    }
 
-                    @Override
-                    public void DownFail() {
-                        Toast.makeText(BookViewActivity.this, "分享失败：download picture fail", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-
-        promotedActionsLibrary.addItem(getResources().getDrawable(R.drawable.timeline), R.drawable.timeline_back, new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String[] allowedContentTypes = new String[]{"image/png", "image/jpeg"};
-                BaseAsyncHttp.downloadFile(mBook.getBitmap(), new FileDownloadHandler(allowedContentTypes) {
-                    @Override
-                    public void DownSuccess() {
-                        DownFail();
-                    }
-
-                    @Override
-                    public void DownFail() {
-                        Toast.makeText(BookViewActivity.this, "分享失败：download picture fail", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
         promotedActionsLibrary.addMainItem(getResources().getDrawable(R.drawable.share), R.drawable.btn_back);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getActionBar().setHomeButtonEnabled(true);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return true;
     }
 
     private void startAnimationThreadStuff(long delay) {

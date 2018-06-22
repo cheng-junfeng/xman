@@ -1,21 +1,16 @@
 package com.xman.view.book;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
 import com.xman.R;
-import com.xman.app.adapter.AnnotationAdapter;
+import com.xman.app.BaseActivity;
+import com.xman.view.book.adapter.AnnotationAdapter;
 import com.xman.app.bean.Annotation;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
@@ -23,26 +18,35 @@ import com.xman.net.HttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class AnnotationListActivity extends Activity {
+import butterknife.BindView;
 
-    private ListView mLvAnnotation;
+
+public class AnnotationListActivity extends BaseActivity {
+
+    @BindView(R.id.lv_annotation)
+    ListView mLvAnnotation;
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout mSrLayout;
+
     private List<Annotation> mAnnotations = new ArrayList<>();
     private AnnotationAdapter mAdapter;
     private String bookid, bookname;
-    private SwipeRefreshLayout mSrLayout;
 
     private int hasNum = 0; //已经加载的数量
 
+    @Override
+    protected int setContentView() {
+        return R.layout.activity_annotation;
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_annotation);
-
         bookid = getIntent().getStringExtra("id");
         bookname = getIntent().getStringExtra("name");
-        this.getActionBar().setTitle("《" + bookname + "》的笔记");
-
-        mSrLayout = findViewById(R.id.swipe_container);
+        getSupportActionBar().setTitle("《" + bookname + "》的笔记");
 
         mSrLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -55,12 +59,9 @@ public class AnnotationListActivity extends Activity {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
-        mLvAnnotation = findViewById(R.id.lv_annotation);
         mLvAnnotation.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-
             }
 
             @Override
@@ -76,7 +77,6 @@ public class AnnotationListActivity extends Activity {
                 }
             }
         });
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -113,16 +113,16 @@ public class AnnotationListActivity extends Activity {
                 }
                 if (mAnnotations.size() == 0) {
                     Toast.makeText(AnnotationListActivity.this, "没有发现本书的读书笔记", Toast.LENGTH_SHORT).show();
-                    AnnotationListActivity.this.finish();
+//                    AnnotationListActivity.this.finish();
                 }
 
                 mAdapter.setList(mAnnotations);
                 mAdapter.notifyDataSetChanged();
-                if (hasNum == resp.optInt("total"))
+                if (hasNum == resp.optInt("total")) {
                     Toast.makeText(AnnotationListActivity.this, "没有更多的读书笔记", Toast.LENGTH_SHORT).show();
+                }
                 hasNum = mAnnotations.size();
                 mSrLayout.setRefreshing(false);
-
             }
 
             @Override
@@ -130,22 +130,5 @@ public class AnnotationListActivity extends Activity {
                 Toast.makeText(AnnotationListActivity.this, "网络出错", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getActionBar().setHomeButtonEnabled(true);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return true;
     }
 }

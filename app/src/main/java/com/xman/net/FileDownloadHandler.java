@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.loopj.android.http.BinaryHttpResponseHandler;
-import com.xman.utils.FileUtils;
+import com.xman.utils.FileUtil;
 
 import org.apache.http.Header;
 
@@ -22,7 +22,7 @@ public abstract class FileDownloadHandler extends BinaryHttpResponseHandler {
 
     @Override
     public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-        String tempPath = FileUtils.getCachePath() + "/temp.jpg";
+        String tempPath = FileUtil.getCachePath() + "/temp.jpg";
         File file = new File(tempPath);
         if (file.exists())
             file.delete();
@@ -31,7 +31,7 @@ public abstract class FileDownloadHandler extends BinaryHttpResponseHandler {
 
     @Override
     public void onSuccess(int i, Header[] headers, byte[] bytes) {
-        String tempPath = FileUtils.getCachePath() + "/temp.jpg";
+        String tempPath = FileUtil.getCachePath() + "/temp.jpg";
         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         File file = new File(tempPath);
         // 压缩格式
