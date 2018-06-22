@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <color name="colorPrimary">#3F80CC</color>
+    <color name="colorPrimaryDark">#3F80CC</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="item_bg">#10000000</color>
+
     <color name="material_blue_500">#2196F3</color>
 
     <color name="actionbar">#6295f4</color>
     <color name="rippelColor">#FFFFFF</color>
-    <color name="search_item_bg">#cccccc</color>
-    <color name="card_background">#ffffff</color>
-    <color name="card_shadow">#10000000</color>
-    <color name="window_background">#00000000</color>
+    <color name="search_item_bg">@color/item_bg</color>
 
     <color name="contents_text">#ff000000</color>
     <color name="viewfinder_laser">#ffff0000</color>
