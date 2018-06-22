@@ -29,6 +29,10 @@ import butterknife.BindView;
  * 1 android-Asynchttp 异步网络请求 douban.api ，笔记信息
  * 2 SwipeRefreshLayout 下拉刷新的列表
  * 3 Adapter中 的 CircleImageView 圆形图片
+ * 4 注意SwipeRefreshLayout 在 onScrollStateChanged 下也可以做分页
+ * A 请求服务端，from + size 起点和size
+ * B List数据在Activity 一直在add
+ * C List数据直接给到Adapter 然后 notify
  */
 public class AnnotationListActivity extends BaseActivity {
 
@@ -74,7 +78,7 @@ public class AnnotationListActivity extends BaseActivity {
             public void onScrollStateChanged(AbsListView absListView, int scrollState) {
                 switch (scrollState) {
                     case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
-                        // 判断滚动到底部
+                        // 判断滚动到底部，分页size = 20
                         if (mLvAnnotation.getLastVisiblePosition() == (mLvAnnotation.getCount() - 1)) {
                             mSrLayout.setRefreshing(true);
                             reqAnnotationList(hasNum, 20);
@@ -103,8 +107,9 @@ public class AnnotationListActivity extends BaseActivity {
         BaseAsyncHttp.getReq("/v2/book/" + bookid + "/annotations", params, new HttpResponseHandler() {
             @Override
             public void jsonSuccess(JSONObject resp) {
-                if (hasNum == 0)
+                if (hasNum == 0) {
                     mAnnotations.clear();
+                }//首次进来，清除数据
                 JSONArray jsons = resp.optJSONArray("annotations");
                 for (int i = 0; i < jsons.length(); i++) {
                     Annotation annotation = new Annotation();
@@ -116,6 +121,7 @@ public class AnnotationListActivity extends BaseActivity {
                     annotation.setPage(jsons.optJSONObject(i).optInt("page_no"));
                     annotation.setTime(jsons.optJSONObject(i).optString("time"));
                     mAnnotations.add(annotation);
+                    //所有查询到的数据，全部add到List
                 }
                 if (mAnnotations.size() == 0) {
                     Toast.makeText(AnnotationListActivity.this, "没有发现本书的读书笔记", Toast.LENGTH_SHORT).show();
@@ -127,6 +133,7 @@ public class AnnotationListActivity extends BaseActivity {
                     Toast.makeText(AnnotationListActivity.this, "没有更多的读书笔记", Toast.LENGTH_SHORT).show();
                 }
                 hasNum = mAnnotations.size();
+                //设置下次请求的起点
                 mSrLayout.setRefreshing(false);
             }
 
