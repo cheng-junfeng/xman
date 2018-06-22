@@ -1,4 +1,4 @@
-package com.xman.view.book.adapter;
+package com.xman.ui.book.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import com.xman.R;
-import com.xman.app.bean.Annotation;
+import com.xman.ui.book.bean.Annotation;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.xman.view.email;
+package com.xman.ui.email;
 
 import java.util.Properties;
 

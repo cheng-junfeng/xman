@@ -108,6 +108,7 @@
                             android:id="@+id/tv_book_author"
                             android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
+                            android:textColor="@color/colorPrimary"
                             android:text="韩寒"
                             android:maxLines="1"
                             android:layout_height="18dp" />
@@ -116,6 +117,7 @@
                             android:id="@+id/tv_book_time"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
+                            android:textColor="@color/colorPrimary"
                             android:text="2014-10"
                             android:maxLines="1"
                             android:layout_height="18dp" />
@@ -124,6 +126,7 @@
                             android:id="@+id/tv_book_page"
                             android:layout_width="wrap_content"
                             android:maxLines="1"
+                            android:textColor="@color/colorPrimary"
                             android:text="112页"
                             android:layout_height="18dp"
                             android:layout_marginTop="5dp" />
@@ -132,6 +135,7 @@
                             android:id="@+id/tv_book_publicer"
                             android:layout_width="wrap_content"
                             android:text="清华大学出版社"
+                            android:textColor="@color/colorPrimary"
                             android:maxLines="1"
                             android:layout_marginTop="5dp"
                             android:layout_height="18dp" />
@@ -140,6 +144,7 @@
                             android:id="@+id/tv_book_isbn"
                             android:layout_width="wrap_content"
                             android:text="123345567788"
+                            android:textColor="@color/colorPrimary"
                             android:maxLines="1"
                             android:layout_height="18dp"
                             android:layout_marginTop="5dp" />
@@ -148,6 +153,7 @@
                             android:id="@+id/tv_book_price"
                             android:layout_width="wrap_content"
                             android:text="19.9元"
+                            android:textColor="@color/colorPrimary"
                             android:layout_height="18dp"
                             android:maxLines="1"
                             android:layout_marginTop="5dp" />
@@ -156,6 +162,7 @@
                             android:id="@+id/tv_book_score"
                             android:layout_width="wrap_content"
                             android:text="4.7分"
+                            android:textColor="@color/colorPrimary"
                             android:maxLines="1"
                             android:layout_height="18dp"
                             android:layout_marginTop="5dp" />
@@ -220,6 +227,7 @@
 
                     <TextView
                         android:text="内容简介"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="22sp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />
@@ -243,6 +251,7 @@
 
                     <TextView
                         android:text="本书目录"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="22sp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content" />

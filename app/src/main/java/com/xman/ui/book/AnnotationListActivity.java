@@ -1,4 +1,4 @@
-package com.xman.view.book;
+package com.xman.ui.book;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,8 +10,8 @@ import android.widget.Toast;
 import com.loopj.android.http.RequestParams;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.view.book.adapter.AnnotationAdapter;
-import com.xman.app.bean.Annotation;
+import com.xman.ui.book.adapter.AnnotationAdapter;
+import com.xman.ui.book.bean.Annotation;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
 
@@ -24,6 +24,12 @@ import java.util.List;
 import butterknife.BindView;
 
 
+/**
+ * 实现 豆瓣 api 的搜索
+ * 1 android-Asynchttp 异步网络请求 douban.api ，笔记信息
+ * 2 SwipeRefreshLayout 下拉刷新的列表
+ * 3 Adapter中 的 CircleImageView 圆形图片
+ */
 public class AnnotationListActivity extends BaseActivity {
 
     @BindView(R.id.lv_annotation)
@@ -113,7 +119,6 @@ public class AnnotationListActivity extends BaseActivity {
                 }
                 if (mAnnotations.size() == 0) {
                     Toast.makeText(AnnotationListActivity.this, "没有发现本书的读书笔记", Toast.LENGTH_SHORT).show();
-//                    AnnotationListActivity.this.finish();
                 }
 
                 mAdapter.setList(mAnnotations);

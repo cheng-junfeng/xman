@@ -1,6 +1,5 @@
-package com.xman.view;
+package com.xman.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,10 +13,9 @@ import com.simple.HightSimpleActivity;
 import com.simple.ShakeSimpleActivity;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.view.email.MailActivity;
-import com.xman.view.log.LogActivity;
-import com.xman.view.book.BookViewActivity;
-import com.xman.view.book.SearchActivity;
+import com.xman.ui.email.MailActivity;
+import com.xman.ui.log.LogActivity;
+import com.xman.ui.book.SearchActivity;
 
 import java.lang.reflect.Field;
 import java.util.Random;
@@ -27,7 +25,6 @@ import butterknife.OnClick;
 
 
 public class XmanActivity extends BaseActivity {
-    private final static int REQUEST_CODE = 100;
 
     @BindView(R.id.iv_main_back)
     ImageView ivMainBack;
@@ -48,16 +45,6 @@ public class XmanActivity extends BaseActivity {
             ivMainBack.setBackgroundResource(j);
         } catch (Exception e) {
             ivMainBack.setBackgroundResource(R.drawable.main_back1);
-        }
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (((requestCode == REQUEST_CODE) || (resultCode == Activity.RESULT_OK)) && data != null) {
-            String isbn = data.getStringExtra("result");
-            Intent intent = new Intent(XmanActivity.this, BookViewActivity.class);
-            intent.putExtra("isbn", isbn);
-            startActivity(intent);
         }
     }
 
@@ -93,7 +80,7 @@ public class XmanActivity extends BaseActivity {
                 readGo(LogActivity.class);
                 break;
             case R.id.rl_search:
-                readGoForResult(SearchActivity.class, REQUEST_CODE);
+                readGo(SearchActivity.class);
                 break;
             case R.id.rl_email:
                 readGo(MailActivity.class);

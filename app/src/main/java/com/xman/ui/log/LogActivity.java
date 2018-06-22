@@ -1,4 +1,4 @@
-package com.xman.view.log;
+package com.xman.ui.log;
 
 import android.content.Intent;
 import android.net.Uri;

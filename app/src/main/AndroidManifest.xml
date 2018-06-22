@@ -19,16 +19,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appname"
         android:theme="@style/CustomActionBarTheme">
-        <activity android:name=".view.XmanActivity">
+        <activity android:name=".ui.XmanActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.book.SearchActivity" />
-        <activity android:name=".view.book.AnnotationListActivity" />
-        <activity android:name=".view.book.BookViewActivity" />
-        <activity android:name=".view.log.LogActivity" />
-        <activity android:name=".view.email.MailActivity" />
+        <activity android:name=".ui.book.SearchActivity" />
+        <activity android:name=".ui.book.AnnotationListActivity" />
+        <activity android:name=".ui.book.BookViewActivity" />
+        <activity android:name=".ui.log.LogActivity" />
+        <activity android:name=".ui.email.MailActivity" />
     </application>
 </manifest>

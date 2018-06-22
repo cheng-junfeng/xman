@@ -1,4 +1,4 @@
-package com.xman.app.bean;
+package com.xman.ui.book.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

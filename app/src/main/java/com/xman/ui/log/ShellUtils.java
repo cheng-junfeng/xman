@@ -1,4 +1,4 @@
-package com.xman.view.log;
+package com.xman.ui.log;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

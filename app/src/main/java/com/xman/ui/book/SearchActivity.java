@@ -1,4 +1,4 @@
-package com.xman.view.book;
+package com.xman.ui.book;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.loopj.android.http.RequestParams;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.view.book.adapter.SearchAdapter;
-import com.xman.app.bean.Book;
+import com.xman.ui.book.adapter.SearchAdapter;
+import com.xman.ui.book.bean.Book;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.HttpResponseHandler;
 import com.xman.utils.KeyboardUtils;
@@ -31,6 +31,13 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 实现 豆瓣 api 的搜索
+ * 1 android-Asynchttp 异步网络请求 douban.api 数据
+ * 2 RippleView 水波纹布局 RelativeLayout
+ * 3 CircularProgressView 进度条
+ * 4 Book + Adapter 普通 ListView 显示和响应
+ */
 public class SearchActivity extends BaseActivity {
 
 

@@ -1,4 +1,4 @@
-package com.xman.view.book;
+package com.xman.ui.book;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.app.bean.Book;
+import com.xman.ui.book.bean.Book;
 import com.xman.net.BaseAsyncHttp;
 import com.xman.net.FileDownloadHandler;
 import com.xman.net.HttpResponseHandler;
@@ -28,7 +28,13 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 
-
+/**
+ * 实现 豆瓣 api 的搜索
+ * 1 通过传入的Book 对象 /通过isbn 查询的先不用
+ * 2 RippleView 水波纹按钮
+ * 3 PromotedActionsLibrary  上升类按钮，类似FloatingActionMenu 悬浮按钮
+ * 4 CircularProgressView 进度条/因为1 的请求不用，所以也没有进度条
+ */
 public class BookViewActivity extends BaseActivity {
 
 
@@ -83,7 +89,6 @@ public class BookViewActivity extends BaseActivity {
             mBook = getIntent().getParcelableExtra("book");
             updateToView();
         } else if (getIntent().hasExtra("isbn")) {
-
             isbn = getIntent().getStringExtra("isbn");
             getRequestData(isbn);
         }

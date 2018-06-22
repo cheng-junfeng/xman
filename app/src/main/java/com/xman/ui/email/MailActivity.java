@@ -1,4 +1,4 @@
-package com.xman.view.email;
+package com.xman.ui.email;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,7 +22,7 @@ import butterknife.OnClick;
  * 2 注意要打开发件邮箱的POP3/IMAP/SMTP服务，不然会认证失败
  * 3 使用账户+授权码的方式发送
  * 4 邮箱发送涉及网络，在子线程中进行
- * */
+ */
 public class MailActivity extends BaseActivity {
     private final static String TAG = "MailActivity";
     Handler handler1;
@@ -42,7 +42,7 @@ public class MailActivity extends BaseActivity {
             public void handleMessage(Message msg) {
                 // 处理从子线程发送过来的消息
                 Logger.d(TAG, "Current:" + Thread.currentThread().getName());
-                switch (msg.what){
+                switch (msg.what) {
                     case 1:
                         try {
                             new MailUtil().sendMail("android test");
@@ -53,7 +53,8 @@ public class MailActivity extends BaseActivity {
                     case 2:
                         send();
                         break;
-                    default:break;
+                    default:
+                        break;
                 }
             }
         };

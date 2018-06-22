@@ -1,4 +1,4 @@
-package com.xman.app.bean;
+package com.xman.ui.book.bean;
 
 
 public class Annotation {

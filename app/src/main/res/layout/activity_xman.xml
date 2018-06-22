@@ -60,6 +60,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/gray" />
             </RelativeLayout>
+
             <ImageView
                 android:layout_width="1px"
                 android:src="@color/gray"
@@ -81,6 +82,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/gray" />
             </RelativeLayout>
+
             <ImageView
                 android:layout_width="1px"
                 android:src="@color/gray"
