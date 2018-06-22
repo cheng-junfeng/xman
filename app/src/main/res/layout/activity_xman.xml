@@ -18,12 +18,12 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:weightSum="2"
+            android:weightSum="4"
             android:orientation="horizontal"
-            android:layout_height="120dp">
+            android:layout_height="60dp">
 
             <RelativeLayout
-                android:id="@+id/rl_more"
+                android:id="@+id/rl_log"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
@@ -57,6 +57,48 @@
                     android:gravity="center"
                     android:layout_centerInParent="true"
                     android:text="搜索"
+                    android:textSize="18sp"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="1px"
+                android:src="@color/gray"
+                android:layout_height="fill_parent" />
+
+            <RelativeLayout
+                android:id="@+id/rl_email"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:text="邮件"
+                    android:textSize="18sp"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="1px"
+                android:src="@color/gray"
+                android:layout_height="fill_parent" />
+
+            <RelativeLayout
+                android:id="@+id/rl_more"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:text="更多"
                     android:textSize="18sp"
                     android:textColor="@color/gray" />
             </RelativeLayout>

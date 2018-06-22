@@ -1,4 +1,4 @@
-package com.xman.view.Log;
+package com.xman.view.log;
 
 import android.text.TextUtils;
 

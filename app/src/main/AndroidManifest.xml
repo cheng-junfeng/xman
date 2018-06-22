@@ -28,10 +28,8 @@
         <activity android:name=".view.book.BookViewActivity" />
         <activity android:name=".view.book.AnnotationListActivity" />
         <activity android:name=".view.book.SearchActivity" />
-        <activity android:name=".view.Log.LogActivity" />
-        <activity
-            android:name=".view.book.AboutActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+        <activity android:name=".view.log.LogActivity" />
+        <activity android:name=".view.email.MailActivity" />
+        <activity android:name=".view.book.AboutActivity" />
     </application>
 </manifest>

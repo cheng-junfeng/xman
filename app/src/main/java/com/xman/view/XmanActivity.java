@@ -14,7 +14,8 @@ import com.simple.HightSimpleActivity;
 import com.simple.ShakeSimpleActivity;
 import com.xman.R;
 import com.xman.app.BaseActivity;
-import com.xman.view.Log.LogActivity;
+import com.xman.view.email.MailActivity;
+import com.xman.view.log.LogActivity;
 import com.xman.view.book.AboutActivity;
 import com.xman.view.book.BookViewActivity;
 import com.xman.view.book.SearchActivity;
@@ -89,14 +90,20 @@ public class XmanActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick({R.id.rl_more, R.id.rl_search, R.id.rl_shake, R.id.rl_hight})
+    @OnClick({R.id.rl_log, R.id.rl_search, R.id.rl_email, R.id.rl_more, R.id.rl_shake, R.id.rl_hight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rl_more:
+            case R.id.rl_log:
                 readGo(LogActivity.class);
                 break;
             case R.id.rl_search:
                 readGoForResult(SearchActivity.class, REQUEST_CODE);
+                break;
+            case R.id.rl_email:
+                readGo(MailActivity.class);
+                break;
+            case R.id.rl_more:
+//                readGo(ShakeSimpleActivity.class);
                 break;
             case R.id.rl_shake:
                 readGo(ShakeSimpleActivity.class);
