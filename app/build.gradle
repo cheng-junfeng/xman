@@ -32,6 +32,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/android-async-http-1.4.5.jar')
     implementation files('libs/universal-image-loader-1.9.3.jar')
+
+    //design
+    implementation 'com.android.support:design:26.1.0'
     //butterknife
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVer"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVer"

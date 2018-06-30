@@ -16,6 +16,7 @@ import com.xman.app.BaseActivity;
 import com.xman.ui.email.MailActivity;
 import com.xman.ui.log.LogActivity;
 import com.xman.ui.book.SearchActivity;
+import com.xman.ui.word.HtmlActivity;
 
 import java.lang.reflect.Field;
 import java.util.Random;
@@ -86,7 +87,7 @@ public class XmanActivity extends BaseActivity {
                 readGo(MailActivity.class);
                 break;
             case R.id.rl_more:
-//                readGo(ShakeSimpleActivity.class);
+                readGo(HtmlActivity.class);
                 break;
             case R.id.rl_shake:
                 readGo(ShakeSimpleActivity.class);
